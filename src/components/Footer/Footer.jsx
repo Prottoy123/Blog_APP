@@ -1,141 +1,67 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import Logo from '../logo';
+import React from "react";
+import Logo from "../logo";
+
 function Footer() {
   return (
-    <section className="relative overflow-hidden py-10 bg-gray-400 border border-t-2 border-t-black">
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
-        <div className="-m-6 flex flex-wrap">
-          <div className="w-full p-6 md:w-1/2 lg:w-5/12">
-            <div className="flex h-full flex-col justify-between">
-              <div className="mb-4 inline-flex items-center">
-                <Logo width="100px" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-600">
-                  &copy; Copyright 2023. All Rights Reserved by DevUI.
-                </p>
-              </div>
+    <footer className="w-full py-6 mt-12 border-t border-slate-200/60 bg-white/40 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+          {/* Left Side: Branding & Advice */}
+          <div className="flex flex-col items-start text-left">
+            <div className="mb-3 transition-transform duration-300 hover:opacity-80">
+              <Logo width="55px" />
             </div>
+
+            <p className="text-slate-500 font-medium text-sm mb-2 italic max-w-xs leading-relaxed">
+              "Code with passion, build with purpose, and never stop learning."
+            </p>
+
+            <p className="text-[10px] text-slate-400 font-bold tracking-[0.1em] uppercase">
+              &copy; {new Date().getFullYear()} All Rights Reserved By Monjurul
+              Islam
+            </p>
           </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Company
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Affiliate Program
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Press Kit
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Support
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Account
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Help
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Customer Support
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-3/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Legals
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
-                  >
-                    Licensing
-                  </Link>
-                </li>
-              </ul>
-            </div>
+
+          {/* Right Side: Elegant Text Links with Hover Animation */}
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            <a
+              href="https://github.com/Prottoy123"
+              target="_blank"
+              rel="noreferrer"
+              className="group relative text-sm font-bold text-slate-600 transition-colors duration-300 hover:text-slate-900"
+            >
+              GitHub
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/monjurul-islam-146601249"
+              target="_blank"
+              rel="noreferrer"
+              className="group relative text-sm font-bold text-slate-600 transition-colors duration-300 hover:text-blue-600"
+            >
+              LinkedIn
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="https://www.facebook.com/nirob.prottoy.9"
+              target="_blank"
+              rel="noreferrer"
+              className="group relative text-sm font-bold text-slate-600 transition-colors duration-300 hover:text-blue-500"
+            >
+              Facebook
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="mailto:monjurulislamprottoy@gmail.com"
+              className="group relative text-sm font-bold text-slate-600 transition-colors duration-300 hover:text-rose-500"
+            >
+              Email
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-rose-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }
 
