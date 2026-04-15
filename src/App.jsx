@@ -1,41 +1,43 @@
-import { useEffect, useState } from 'react'
-import {useDispatch} from 'react-redux'
-import './App.css'
-import authService from './appwrite/auth'
-import {login,logout} from './store/authSlice'
-import { Footer, Header } from './components'
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import "./App.css";
+import authService from "./appwrite/auth";
+import { login, logout } from "./store/authSlice";
+import { Footer, Header } from "./components";
+import { Outlet } from "react-router-dom"; // FIX: Outlet ইমপোর্ট করা হলো
 
 function App() {
-  
-  const [loading,setLoading] = useState(true)
-  const dispatch = useDispatch()
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
-  useEffect(()=>{
-    authService.getCurrentUser()
-    .then((userData)=>{
-      if (userData) {
-        dispatch(login({userData}))
-      }
-      else{
-        dispatch(logout())
-      }
-    })
-    .finally(()=>setLoading(false))
+  useEffect(() => {
+    authService
+      .getCurrentUser()
+      .then((userData) => {
+        if (userData) {
+          dispatch(login(userData));
+        } else {
+          dispatch(logout());
+        }
+      })
+      .catch((error) => {
+        dispatch(logout());
+      })
+      .finally(() => setLoading(false));
+  }, [dispatch]);
 
-  },[])
-
- return !loading ? (
-  <div className='min-h-sc flex flex-wrap content-between bg-gray-400 '>
-<div className='w-full block'>
-  <Header/>
-  <main>
-    TODO:
-  </main>
-  <Footer/>
-</div>
-
-  </div>
- ):(null)
+  return !loading ? (
+    <div className="min-h-sc flex flex-wrap content-between bg-gray-400 ">
+      <div className="w-full block">
+        <Header />
+        <main>
+          {/* FIX: TODO সরিয়ে Outlet বসানো হলো। এখন সব চাইল্ড পেজ এখানে রেন্ডার হবে */}
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </div>
+  ) : null;
 }
 
-export default App
+export default App;
