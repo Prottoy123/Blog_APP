@@ -11,11 +11,11 @@ export default function LogoutBtn() {
       dispatch(logout());
     });
   };
+
   return (
     <button
-      className="inline-block px-6 py-2 duiration-200 hover:bg-blue-100
-    rounded-full"
-    onClick={logoutHandler}
+      className="inline-block px-5 py-2 text-sm font-bold text-slate-600 transition-all duration-300 rounded-full hover:bg-rose-100 hover:text-rose-700 active:scale-95"
+      onClick={logoutHandler}
     >
       Logout
     </button>

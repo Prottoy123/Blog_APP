@@ -13,7 +13,7 @@ function Signup() {
   const { register, handleSubmit } = useForm();
 
   const create = async (data) => {
-    setError(""); // আগের এরর ক্লিয়ার করা হলো
+    setError(""); 
     try {
       const userData = await authService.createAccount(data);
       if (userData) {
@@ -22,42 +22,45 @@ function Signup() {
         navigate("/");
       }
     } catch (error) {
-      // FIX: এররটি স্টেট-এ সেট করা হলো যাতে ইউজার UI-তে দেখতে পায়
       setError(error.message);
     }
   };
 
   return (
-    <div className="flex items-center justify-center">
-      <div
-        className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
-      >
-        <div className="mb-2 flex justify-center">
+    <div className="flex items-center justify-center w-full min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900 via-slate-900 to-black px-4 py-12">
+      <div className="mx-auto w-full max-w-lg bg-white rounded-3xl p-10 shadow-[0_0_50px_-12px_rgba(79,70,229,0.4)] border border-indigo-100/20 transition-all">
+        <div className="mb-8 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
             <Logo width="100%" />
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">
+
+        <h2 className="text-center text-3xl font-black text-slate-900 tracking-tighter">
           Sign up to create account
         </h2>
-        <p className="mt-2 text-center text-base text-black/60">
+
+        <p className="mt-3 text-center text-sm text-slate-600 font-medium">
           Already have an account?&nbsp;
           <Link
             to="/login"
-            className="font-medium text-primary transition-all duration-200 hover:underline"
+            className="font-bold text-indigo-600 transition-all duration-300 hover:text-indigo-500 hover:underline hover:drop-shadow-sm"
           >
             Sign In
           </Link>
         </p>
 
-        {/* এরর মেসেজ রেন্ডারিং */}
-        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+        {error && (
+          <div className="mt-6 p-4 bg-red-50/80 backdrop-blur-sm border-l-4 border-red-500 rounded-r-lg shadow-sm">
+            <p className="text-sm text-red-700 font-semibold text-center">
+              {error}
+            </p>
+          </div>
+        )}
 
-        <form onSubmit={handleSubmit(create)}>
-          <div className="space-y-5">
-            {/* FIX: ছোট হাতের <input> পরিবর্তন করে কাস্টম <Input> করা হলো */}
+        <form onSubmit={handleSubmit(create)} className="mt-8">
+          <div className="space-y-6">
             <Input
-              label="Full Name: "
+              label="Full Name"
               placeholder="Enter Your Full name"
               {...register("name", {
                 required: true,
@@ -65,7 +68,7 @@ function Signup() {
             />
 
             <Input
-              label="Email: "
+              label="Email"
               placeholder="Enter your email"
               type="email"
               {...register("email", {
@@ -79,7 +82,7 @@ function Signup() {
             />
 
             <Input
-              label="Password: "
+              label="Password"
               type="password"
               placeholder="Enter your password"
               {...register("password", {
@@ -87,10 +90,9 @@ function Signup() {
               })}
             />
 
-            {/* FIX: Button কম্পোনেন্ট ব্যবহার করা উচিত যদি তোমার index.js-এ থাকে, নাহলে সাধারণ button ঠিক আছে */}
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+              className="w-full px-4 py-4 mt-4 font-bold text-white transition-all duration-300 bg-indigo-600 rounded-xl hover:bg-indigo-500 hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:scale-[0.98]"
             >
               Create Account
             </button>
