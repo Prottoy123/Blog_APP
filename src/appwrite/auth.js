@@ -46,12 +46,6 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
-      const session = await this.account.getSession({
-        sessionId: "current",
-      });
-
-      if (!session) return null;
-
       return await this.account.get();
     } catch (error) {
       console.log("AuthService::getCurrentUser error", error);
@@ -61,7 +55,7 @@ export class AuthService {
 
   async logout() {
     try {
-      await this.account.deleteSessions();
+      await this.account.deleteSession({ sessionId: "current" });
       return true;
     } catch (error) {
       console.log("AuthService::logout error", error);
