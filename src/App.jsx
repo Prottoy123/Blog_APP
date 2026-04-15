@@ -4,7 +4,7 @@ import "./App.css";
 import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
 import { Footer, Header } from "./components";
-import { Outlet } from "react-router-dom"; // FIX: Outlet ইমপোর্ট করা হলো
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,11 +27,10 @@ function App() {
   }, [dispatch]);
 
   return !loading ? (
-    <div className="min-h-sc flex flex-wrap content-between bg-gray-400 ">
-      <div className="w-full block">
+    <div className="min-h-screen flex flex-wrap content-between bg-gradient-to-br from-[#FDFBF7] via-[#FAF6ED] to-[#F3EDE0] text-slate-800 selection:bg-amber-200 selection:text-amber-900 transition-colors duration-300">
+      <div className="w-full flex flex-col min-h-screen">
         <Header />
-        <main>
-          {/* FIX: TODO সরিয়ে Outlet বসানো হলো। এখন সব চাইল্ড পেজ এখানে রেন্ডার হবে */}
+        <main className="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12">
           <Outlet />
         </main>
         <Footer />

@@ -23,7 +23,7 @@ function Home() {
       <div className="w-full flex items-center min-h-[80vh] py-16">
         <Container>
           <div className="flex flex-col items-start justify-center text-left">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-950 mb-6">
               Welcome to the <span className="text-orange-500">Blog</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mb-10 leading-relaxed">
@@ -59,8 +59,8 @@ function Home() {
       <Container>
         <div className="flex flex-col md:flex-row items-start justify-between py-10">
           <div className="mb-6 md:mb-0 text-left">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-              Welcome,{" "}
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-950 mb-4">
+              Welcome,
               <span className="text-orange-500">{currentUser.name}</span>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mb-8">
@@ -75,7 +75,7 @@ function Home() {
               </Link>
               <Link
                 to="/add-post"
-                className="text-gray-600 dark:text-gray-400 font-medium hover:text-orange-500 transition-colors"
+                className="text-gray-950 font-bold hover:text-orange-500 transition-colors"
               >
                 Add a new post &rarr;
               </Link>
