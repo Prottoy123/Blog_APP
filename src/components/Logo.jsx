@@ -1,9 +1,14 @@
-// src/components/Logo.jsx
-import React from 'react';
-function Logo({ width = '100px' }) {
+import React from "react";
+import logo from "../assets/logo.svg"
+function Logo({ width = "100px", className = "" }) {
   return (
-    <div style={{ width }}>
-      Logo
+    <div className={`flex items-center ${className}`}>
+      <img
+        src={logo}
+        alt="Oren Logo"
+        style={{ width: width }}
+        className="object-contain"
+      />
     </div>
   );
 }
